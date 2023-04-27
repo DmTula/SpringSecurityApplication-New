@@ -2,23 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Аутентификация</title>
+    <img th:src="@{images/banner.jpg}" width="1400px">
     <link th:href="@{/css/index.css}" type="text/css" rel="stylesheet">
+    <title>Личный кабинет</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-<h3>Вход</h3>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<div class="authen">
+<h3>Личный кабинет</h3>
 <form method="post" action="/process_login">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     <label for="username">Введите логин: </label>
-    <input type="text" placeholder="Введите логин" name="username" id="username">
+    <input type="text" class="input-wrapper" placeholder="Введите логин" name="username" id="username">
+    <br>
     <br>
     <label for="password">Введите пароль: </label>
-    <input type="password" placeholder="Введите пароль" name="password" id="password">
-    <input type="submit" value="Войти">
+    <input type="password" class="input-wrapper" placeholder="Введите пароль" name="password" id="password">
+    <br>
+    <br>
+    <input type="submit" class="btn btn-outline-primary" value="Войти">
 </form>
 <div th:if="${param.error}" style="color: red">
     Неправильный логин или пароль
 </div>
-<a href="/registration">Зарегистрироваться</a>
+<a href="/registration" class="btn btn-outline-secondary">Регистрация</a>
+</div>
 </body>
 </html>
